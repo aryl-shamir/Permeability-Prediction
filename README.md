@@ -31,10 +31,6 @@ without requiring you to cross-reference the manuscript's figures or section num
 11. [Reproducibility notes](#11-reproducibility-notes)
 12. [Troubleshooting](#12-troubleshooting)
 13. [License](#13-license)
-14. [Citation](#14-citation)
-15. [Contributing](#15-contributing)
-16. [Acknowledgments](#16-acknowledgments)
-17. [Contact](#17-contact)
 
 ---
 
@@ -51,7 +47,7 @@ value, without needing a physical core sample at that depth.
 
 ## 2. Why machine learning for permeability
 
-Classical formulas for estimating permeability from logs (e.g., Kozeny-Carman, Wyllie-Rose)
+Classical formulas for estimating permeability from logs 
 assume simplified, uniform rock properties. Real reservoirs — especially structurally complex
 ones like the RDR Basin — have non-linear relationships between log measurements and
 permeability that these formulas don't capture well. Machine learning models can learn these
@@ -107,7 +103,7 @@ The models take these well-log measurements as input:
 | CAL | Caliper — actual borehole diameter | in |
 | DT | Sonic transit time — how fast sound travels through the rock | µs/ft |
 | SP | Spontaneous Potential — natural electrical potential in the borehole | mV |
-| LITHO | Lithology facies classification (e.g., sandstone, shale) | categorical |
+
 
 The model's output (target variable) is **logK** — permeability, transformed with log10 to
 make its distribution easier for the models to learn from.
@@ -215,8 +211,7 @@ structure is bundled with `tests/quick_test.py`, so anyone can confirm the pipel
 correctly without needing the real data (see Section 8).
 
 If you need access to the original data for research purposes, contact the corresponding
-author (Section 17) — access may be possible through a separate data-use agreement with the
-data owner.
+author — access may be possible through a separate data-use agreement with the data owner.
 
 ## 11. Reproducibility notes
 
@@ -233,8 +228,6 @@ data owner.
 - **`ModuleNotFoundError`** — make sure your virtual environment is activated
   (`source .venv/Scripts/activate` or `uv run ...`) and that installation finished without
   errors.
-- **XGBoost won't install on Apple Silicon (M1/M2/M3)** — try installing via `conda`/`mamba`
-  instead of `pip`, or make sure you're using a recent XGBoost build that supports `arm64`.
 - **`FileNotFoundError` mentioning `data/`** — expected if you don't have the real dataset;
   use `tests/quick_test.py` instead, which only needs the bundled synthetic data.
 - **Jupyter can't find a kernel** — after activating your environment, run
