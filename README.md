@@ -198,6 +198,23 @@ there to prove the code itself works correctly for anyone who downloads the repo
 Each model is trained with the same input features and evaluated with the same metrics, so
 their results are directly comparable.
 
+## Model Interpretability (SHAP)
+
+To interpret the predictions of the best-performing model (XGBoost), SHAP (SHapley Additive
+exPlanations) is used to compute each feature's contribution to individual predictions.
+
+The SHAP analysis is implemented in `src/shap_analysis.py` and is run from within the main
+notebook (`notebooks/permeability_prediction.ipynb`), after the XGBoost model has been
+trained. It produces a summary plot showing which well-log features most strongly influence
+predicted permeability, and in which direction.
+
+```python
+from src.shap_analysis import compute_shap_values, plot_summary
+
+shap_values, explainer = compute_shap_values(xgb_only_model, X_test_for_shap)
+plot_summary(shap_values, X_test_for_shap_named)
+```
+
 ## 10. Data availability
 
 The real well-log data used to train and test these models is proprietary — it was shared by
