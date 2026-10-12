@@ -26,7 +26,7 @@ without requiring you to cross-reference the manuscript's figures or section num
 6. [Installation](#6-installation)
 7. [How to use this code](#7-how-to-use-this-code)
 8. [Quick test (no real data needed)](#8-quick-test-no-real-data-needed)
-9. [The three models, explained](#9-the-three-models-explained)
+9. [The three models, explained, shap interpretability](#9-the-three-models-explained)
 10. [Data availability](#10-data-availability)
 11. [Reproducibility notes](#11-reproducibility-notes)
 12. [Troubleshooting](#12-troubleshooting)
